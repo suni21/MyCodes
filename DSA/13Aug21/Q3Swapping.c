@@ -48,11 +48,11 @@ int main()
 {
     
     int r, c;
-    printf("Enter the number of rows : ");
+    printf("Enter the no. of rows : ");
     scanf("%d", &r);
-    printf("Enter the number of column: ");
+    printf("Enter the no. of column: ");
     scanf("%d", &c);
-    int *arr = (int*)malloc(r * sizeof(int));
+    int **arr = (int**)malloc(r * sizeof(int*));
     for(int i = 0; i < r; i++)
     {
         arr[i] = (int*)malloc(c * sizeof(int));

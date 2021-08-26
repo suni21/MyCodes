@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-void getdata( int n,int *ar[])
+
+void getdata( int *ar[],int n)
 {
     for(int i = 0; i < n; i++)
     {
@@ -39,7 +40,7 @@ int ZeroCount(int *ar[], int n)
     }
     printf("%d",count);
 }
-int SumDiagonal(int n,int *ar[])
+int SumDiagonal(int *ar[],int n)
 {
     int total = 0;
     for(int i = 0; i < n; i++)
@@ -72,24 +73,30 @@ void MinorDiagonal(int *ar[], int n)
 }
 int ProductDiagonal(int *arr[], int r)
 {
-    int mul = 1;
-    for(int i = 0; i < r; i++)
+    int maj_d = 1, min_d=1;
+    for (int i = 0; i < r; i++)
     {
-        for(int j = 0; j < r; j++)
+        for (int j = 0; j < r; j++)
         {
-            if(i ==j||j==r-i-1)
+            if (i == j)
             {
-                mul *= arr[i][j];
+                maj_d *= arr[i][j];
             }
+            if ((i + j) == (r - 1))
+                {
+                min_d *= arr[i][j];
+                }
         }
     }
-    printf("%d",mul);
+    printf("%d",maj_d);
+    printf("%d",min_d);
 }
+
 
 int main()
 {
     int ro;
-    printf("Enter the number of rows: ");
+    printf("\nEnter the number of rows: ");
     scanf("%d", &ro);
 
     int *ar[ro];
@@ -97,9 +104,12 @@ int main()
     {
         ar[i] = (int*)malloc(ro * sizeof(int));
     }
-    printf("Total nonzero numbers : %d\n",ZeroCount(ar, ro));
-    printf("The sum of elements above leading diagonal:%d\n", SumDiagonal(ar, ro));
+    getdata(ar,ro);
+    displaydata(ar,ro);
+
+    printf("\nTotal nonzero numbers : %d\n",ZeroCount(ar, ro));
+    printf("\nThe sum of elements above leading diagonal:%d\n", SumDiagonal(ar ,ro));
     MinorDiagonal(ar, ro);
-    printf("The product of diagonal elements is %d\n", ProductDiagonal(ar, ro));
+    printf("\nThe product of diagonal elements is %d\n", ProductDiagonal(ar, ro));
     return 0;
 }
