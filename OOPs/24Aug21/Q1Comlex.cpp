@@ -18,10 +18,9 @@ class complex
         {
             real=c1.real;
             img=c2.img;
-        }[]
+        }
         void display()
         {
-            cout<<"The number is:\n";
             cout<<real<<"+"<<img<<"i"<<endl;
         }
         ~complex()  //destructor
@@ -32,13 +31,13 @@ class complex
 int main()
 {
     complex c1;
-    c1.display();
     complex c2(10,6);
-    c2.display();
     complex c3(c1);
-    c3.display();
     complex c4(c2);
+    cout<<"The number is:\n";
+    c1.display();
+    c2.display();
+    c3.display();
     c4.display();
-
     return 0;
 }
