@@ -34,8 +34,8 @@ public:
     }
     void display()
     {
-        cout << "\nmeter :" << meter_243 << endl;
-        cout << "centimeter : " << centi_243 << endl;
+        cout <<meter_243<<"m"<<"\t"<<centi_243<<"cm"<<endl;
+
     }
 };
 

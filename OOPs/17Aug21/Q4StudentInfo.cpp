@@ -46,7 +46,7 @@ int main()
     {
         ob_243[i_243].getdata();
     }
-    cout << "Details:";
+    cout << "\nDetails:";
     cout << "\nName\t\t Roll no\t\t Total Marks" << endl;
     for (int i_243 = 0; i_243 < n_243; i_243++)
     {

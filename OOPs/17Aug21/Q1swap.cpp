@@ -8,7 +8,7 @@ class clas1
 
 public:
     friend void swap(clas1 &, clas2 &);
-    void DataVal(int a_243)
+    void dataVal(int a_243)
     {
         num1_243 = a_243;
     }
@@ -47,7 +47,7 @@ int main()
 {
     clas1 obj1_243;
     clas2 obj2_243;
-    obj1_243.DataVal(10);
+    obj1_243.dataVal(10);
     obj2_243.dataVal(15);
     obj1_243.display();
     obj2_243.display();

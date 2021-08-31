@@ -33,8 +33,7 @@ public:
     }
     void display()
     {
-        cout << "\nmeter :" << meter_243 << endl;
-        cout << "centimeter :" << centi_243 << endl;
+        cout <<meter_243<<"m"<<"\t"<<centi_243<<"cm"<<endl;
     }
 };
 dis_meter addDis(dis_feet ob1_243, dis_meter ob2_243)
@@ -56,6 +55,8 @@ int main()
     dis_meter o2_243;
     o1_243.getData(10, 20);
     o2_243.getData(2, 30);
+    o1_243.display();
+    o2_243.display();
     cout << "Summation: ";
     dis_meter add_243 = addDis(o1_243, o2_243);
     add_243.display();

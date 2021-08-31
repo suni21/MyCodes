@@ -36,7 +36,7 @@ int main()
 
     ob1_243.diplay();
     ob2_243.diplay();
-    ob3_243.diplay();
+
 
     cout << "input func is called " << test::in_243 << " times" << endl;
     cout << "output func is called " << test::out_243 << " times" << endl;
