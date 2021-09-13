@@ -10,5 +10,4 @@ struct info
   {
        struct info *n;
        n = (struct info*)malloc(4* sizeof(struct info));
-       n=(char *)malloc()
   }
