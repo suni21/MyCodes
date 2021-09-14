@@ -8,12 +8,12 @@ class Cricketer
     int age, j_no, n_ODI;
 
 public:
-    void getdata(char *n, int a, int j, int o)
+    void getdata(char *n, int a, int j, int oo)
     {
         strcpy(name, n);
         age = a;
         j_no = j;
-        n_ODI = o;
+        n_ODI = oo;
     }
 
     void display()
