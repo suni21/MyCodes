@@ -7,7 +7,7 @@ class BankAccount
     char customerName[30];
     int customerID;
     int accountNo;
-    double accountBalance;
+    float accountBalance;
     char email[15];
 
 public:
@@ -19,7 +19,7 @@ public:
         accountBalance = 4000;
         strcpy(email,"2006243@kiit.ac.in");
     }
-    BankAccount(char *c, int i, int n, double b, char *e)
+    BankAccount(char *c, int i, int n, float b, char *e)
     {
         customerID = i;
         strcpy(customerName,c);
@@ -53,7 +53,6 @@ void BankAccount ::setvalue()
     cin >> customerID;
     cout << "Enter Balance: ";
     cin >> accountBalance;
-    cin.ignore();
     cout << "Enter Email: ";
     getchar();
     gets(email);
@@ -72,19 +71,19 @@ void BankAccount::withdraw(float aBalance)
     {
         accountBalance = accountBalance - aBalance;
         cout << "Rs." << aBalance << " withdrawn from account.";
-        cout << "\n Transaction dine!" << endl;
+        cout << "Transaction dine!" << endl;
         cout << "\nRemaining balance: " << accountBalance << endl;
     }
     else
     {
         cout << "\nNot sufficient amount." << endl;
-        cout << "\n Transaction not dine!" << endl;
+        cout << "Transaction not dine!" << endl;
         cout << "Available Amount: " << accountBalance << endl;
     }
 }
 void BankAccount ::display()
 {
-    cout << "Name: " << customerName << endl;
+    cout << "\nName: " << customerName << endl;
     cout << "ID: " <<customerID<<endl;    
     cout << "Account Number:" << accountNo << endl;
     cout << "Balance:\t" << accountBalance << endl;
@@ -106,23 +105,33 @@ void MaxBalEmp(BankAccount *ob, int n)
 
 int main()
 {
+    
     char name[30], email[15];
-    float aBalance;
-    int i;
+    float  amount;
+    int n;
     int id, aNo;
+    BankAccount bA1;
     cout<<"Enter no of employess: ";
-    cin>>i;
+    cin>>n;
     cout<<"Enter details: "<<endl;
+    for(int i=0;i<n;i++)
+    {
     cout<<"Acc iD: ";
     cin>>id;
     cout<<"Acc no. : ";
     cin>>aNo;
     cout<<"Name : ";
     cin>>name;
+    cout<<"Amount: ";
+    cin>>amount;
     cout<<"Email : ";
     cin>>email;
-    BankAccount bA1(name, id,aNo,aBalance,email);
     bA1.withdraw(1000);
+    BankAccount bA1(name, id,aNo,amount,email);
+    }
+    for(int i=0;i<n;i++)
+    {
     bA1.display();
+    }
     return 0;
 }
