@@ -30,6 +30,7 @@ class Test : public Students
     int marks[5];
 
 public:
+    
     void getdata_Test(int m[])
     {
         for (int i = 0; i < 5; i++)
@@ -39,6 +40,7 @@ public:
     }
     void display()
     {
+        Students::display();
         for (int i = 0; i < 5; i++)
         {
         cout << "Enter marks"<<[i]<<":"<< marks;
@@ -69,6 +71,7 @@ int main()
     cin>>marks[i];
     }
     t.getdata(name, roll, age, cou);
+    t.getdata_Test()
     t.display();
     return 0;
 }
