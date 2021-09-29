@@ -48,7 +48,7 @@ public:
     {
         cout << "Type(Spin/Pace): " << type << endl;
         cout << "No of wickets: " << n_wic << endl;
-        cout<<"No of hatticks: "<<hatrick<<endl;
+        cout << "No of hatticks: " << hatrick << endl;
         cout << "RunRate: " << r_rate << endl;
         cout << "Speed: " << speed << endl;
         cout << "Best figure: " << figure << endl;
@@ -72,68 +72,67 @@ public:
     {
         Batsman::display();
         Baller::display();
-        cout << "No of man of the matches: " << mom<<endl;
-        cout << "No of international matches: " << in_match<<endl;
-        cout << "No of catches: " << n_catch<<endl;
-        cout << "ICC ranking: " << rank<<endl;
-        cout << "Stylish player of the match: " << sty_player<<endl;
+        cout << "No of man of the matches: " << mom << endl;
+        cout << "No of international matches: " << in_match << endl;
+        cout << "No of catches: " << n_catch << endl;
+        cout << "ICC ranking: " << rank << endl;
+        cout << "Stylish player of the match: " << sty_player << endl;
     }
 };
 
 int main()
 {
-    Allrounder a;
-    int run, n_50s, n_100s;
-    float avg, str_rate;
+    Allrounder a_243;
+    int run_243, n_50s_243, n_100s_243;
+    float avg_243, str_rate_243;
 
-    char type[10];
-    int n_wic, hatrick;
-    float r_rate;
-    float speed;
-    int figure;
+    char type_243[10];
+    int n_wic_243, hatrick_243;
+    float r_rate_243;
+    float speed_243;
+    int figure_243;
 
-    int mom, in_match, n_catch, rank, sty_player;
+    int mom_243, in_match_243, n_catch_243, rank_243, sty_player_243;
 
-    cout<<"Enter details: "<<endl;
+    cout << "Enter details: " << endl;
     cout << "Run Scored: ";
-    cin >> run;
+    cin >> run_243;
     cout << "No of half centuries: ";
-    cin >> n_50s;
+    cin >> n_50s_243;
     cout << "No of centuries: ";
-    cin >> n_100s;
+    cin >> n_100s_243;
     cout << "Average Score: ";
-    cin >> avg;
+    cin >> avg_243;
     cout << "Strike rate: ";
-    cin >> str_rate;
+    cin >> str_rate_243;
 
     cout << "\nType(Spin/Pace): ";
-    cin >> type;
+    cin >> type_243;
     cout << "No of wickets: ";
-    cin >> n_wic;
-    cout<<"No of hatticks: ";
-    cin>>hatrick;
+    cin >> n_wic_243;
+    cout << "No of hatticks: ";
+    cin >> hatrick_243;
     cout << "RunRate: ";
-    cin >> r_rate;
+    cin >> r_rate_243;
     cout << "Speed: ";
-    cin >> speed;
+    cin >> speed_243;
     cout << "Best figure: ";
-    cin >> figure;
+    cin >> figure_243;
 
     cout << "\nNo of man of the matches: ";
-    cin >> mom;
+    cin >> mom_243;
     cout << "No of international matches: ";
-    cin >> in_match;
+    cin >> in_match_243;
     cout << "No of catches: ";
-    cin >> n_catch;
+    cin >> n_catch_243;
     cout << "ICC ranking: ";
-    cin >> rank;
+    cin >> rank_243;
     cout << "Stylish player of the match: ";
-    cin >> sty_player;
-    a.getdata_Batsman(run, n_50s, n_100s, avg, str_rate);
-    a.getdata_Baller(type,n_wic,hatrick,r_rate,speed,figure);
-    a.getdata(mom,in_match,n_catch,rank,sty_player);
-    cout<<"\nDetails: "<<endl;
-    a.display();
+    cin >> sty_player_243;
+    a_243.getdata_Batsman(run_243, n_50s_243, n_100s_243, avg_243, str_rate_243);
+    a_243.getdata_Baller(type_243, n_wic_243, hatrick_243, r_rate_243, speed_243, figure_243);
+    a_243.getdata(mom_243, in_match_243, n_catch_243, rank_243, sty_player_243);
+    cout << "\nDetails: " << endl;
+    a_243.display();
     return 0;
-
 }

@@ -35,7 +35,7 @@ void createFixColumn(int c, int *arr)
     int r;
     printf("Enter the number of row: ");
     scanf("%d", &r);
-    int (arr)[c] = (int()[])malloc(r * c * sizeof(int));
+    int (*arr)[c] = (int(*)[])malloc(r * c * sizeof(int));
     
     for(int i = 0; i < r; i++)
     {

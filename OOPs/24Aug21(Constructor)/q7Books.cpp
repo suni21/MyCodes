@@ -27,7 +27,7 @@ class Books{
             cout << "Author: " << author << endl;
             cout << "Price: " << price << endl;
             cout << "Publisher: " << publisher << endl;
-            cout << "Stock: " << stock << endl;
+            cout << "Stock: " << copies << endl;
         }
         friend void search(Books *b, int n, char *t, char *a);
 
@@ -38,6 +38,3 @@ class Books{
             delete[] publisher;
         }
 };
-
-void search(Books *b, int n, char *t, char *a)
-{
