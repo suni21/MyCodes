@@ -53,8 +53,8 @@ Test(char *n, int r, int a, char *co,int m1,int m2, int m3,int m4,int m5) : Stud
 
 int main()
 {
-    Test t("Suniti",243,19,"Btech",56,76,58,69,98);
-    t.display();
+    Test t_243("Suniti",243,19,"Btech",56,76,58,69,98);
+    t_243.display();
     return 0;
 
 }

@@ -4,12 +4,14 @@ using namespace std;
 
 class Student
 {
-    char name[20];
-    int roll, age;
+    char name[30];
+    int roll;
+    int age;
 
 public:
-    void getdata(char *n, int r, int a)
+    Student(char *n, int r, int a)
     {
+        cout << "Constructor is called for class Student\n";
         strcpy(name, n);
         roll = r;
         age = a;
@@ -20,6 +22,10 @@ public:
         cout << "Roll: " << roll << endl;
         cout << "Age: " << age << endl;
     }
+    ~Student()
+    {
+        cout << "Destructor is called for class Student\n";
+    }
 };
 
 class Test : public Student
@@ -28,9 +34,10 @@ public:
     int marks[5];
 
 public:
-    void getdata(char *n, int r, int a, int m[])
+    Test(char *n, int r, int a, int *m) : Student(n, r, a)
     {
-        Student::getdata(n, r, a);
+        cout << "Constructor is called for class Test\n";
+
         for (int i = 0; i < 5; i++)
         {
             marks[i] = m[i];
@@ -44,6 +51,10 @@ public:
             cout << "Marks " << i + 1 << ":" << marks[i] << endl;
         }
     }
+    ~Test()
+    {
+        cout << "Destructor is called for class Test\n";
+    }
 };
 
 class result : public Test
@@ -53,10 +64,10 @@ class result : public Test
     char grade;
 
 public:
-    void getdata(char *n, int r, int a, int m[])
+    result(char *n, int r, int a, int *m) : Test(n, r, a, m)
     {
-        total=0;
-        Test::getdata(n, r, a, m);
+        total = 0;
+        cout << "Constructor is called for class result\n";
         for (int i = 0; i < 5; i++)
         {
             total += m[i];
@@ -66,7 +77,7 @@ public:
         switch (ch)
         {
         case 10:
-           
+
         case 9:
             grade = 'O';
             break;
@@ -90,35 +101,38 @@ public:
             break;
         }
     }
-        void display()
-        {
-            Test::display();
-            cout << "Total marks: " << total << endl;
-            cout << "Percentage %: " << per << endl;
-            cout << "Grade: " << grade << endl;
-        }
-    };
+    void display()
+    {
+        Test::display();
+        cout << "Total marks: " << total << endl;
+        cout << "Percentage %: " << per << endl;
+        cout << "Grade: " << grade << endl;
+    }
+    ~result()
+    {
+        cout << "Destructor is called for class result\n";
+    }
+};
 
 int main()
 {
-    result r;
-    char name[20];
-    int roll,age,marks[5];
+    char name_243[30];
+    int roll_243, age_243, marks_243[5];
 
-    cout<<"Enter the details: "<<endl;
-    cout<<"Name: ";
-    gets(name);
-    cout<<"Roll no: ";
-    cin>>roll;
-    cout<<"Age: ";
-    cin>>age;
-    cout<<"Enter the marks: "<<endl;
-    for (int i = 0; i < 5; i++)
-        {
-            cout<<"Marks "<<i+1<<":";
-            cin>>marks[i];
-        }
-r.getdata(name,roll,age,marks);
-r.display();
-return 0;
-}    
+    cout << "Enter the details: " << endl;
+    cout << "Name: ";
+    gets(name_243);
+    cout << "Roll no: ";
+    cin >> roll_243;
+    cout << "Age: ";
+    cin >> age_243;
+    cout << "Enter the marks: " << endl;
+    for (int i_243 = 0; i_243 < 5; i_243++)
+    {
+        cout << "Marks " << i_243 + 1 << ":";
+        cin >> marks_243[i_243];
+    }
+    result r1_243(name_243, roll_243, age_243, marks_243);
+    r1_243.display();
+    return 0;
+}

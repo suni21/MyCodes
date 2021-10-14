@@ -8,8 +8,9 @@ class Student
     int roll, age;
 
 public:
-    void getdata_Stud(char *n, int ro, int a)
+    Student(char *n, int ro, int a)
     {
+        cout << "Constructor is called for class Student\n";
         strcpy(name, n);
         roll = ro;
         age = a;
@@ -20,6 +21,10 @@ public:
         cout << "Roll: " << roll << endl;
         cout << "Age: " << age << endl;
     }
+    ~Student()
+    {
+        cout << "Destructor is called for class Student\n";
+    }
 };
 
 class test : virtual public Student
@@ -27,8 +32,9 @@ class test : virtual public Student
     int marks[3];
 
 public:
-    void getdata_Test(int m[])
+    test(char *n, int r, int a,int *m) : Student(n,r,a)
     {
+        cout << "Constructor is called for class test\n";
         for (int i = 0; i < 3; i++)
         {
             marks[i] = m[i];
@@ -38,6 +44,10 @@ public:
     {
         return marks[0] + marks[1] + marks[2];
     }
+    ~test()
+  {
+     cout << "Destructor is called for class test\n"; 
+  }
 };
 
 class activities : virtual public Student
@@ -45,15 +55,20 @@ class activities : virtual public Student
     int actMark[2];
 
 public:
-    void setdata_Act(int m[])
+    activities(char *n, int r, int a, int *actm) : Student(n, r, a)
     {
-        actMark[0] = m[0];
-        actMark[1] = m[1];
+        cout << "Constructor is called for class activities\n";
+        actMark[0] = actm[0];
+        actMark[1] = actm[1];
     }
 
     int totalScore()
     {
         return actMark[0] + actMark[1];
+    }
+    ~activities()
+    {
+        cout << "Destructor is called for class activities\n";
     }
 };
 
@@ -64,8 +79,9 @@ class result : public test, public activities
     char grade;
 
 public:
-    void showTotal()
+    result(char *n, int r, int a, int *m, int *actm) : Student(n, r, a), test(n, r, a, m), activities(n, r, a, m)
     {
+        cout << "Constructor is called for class result\n";
         total = totalMarks() + totalScore();
         percent = total / 5.0;
 
@@ -105,11 +121,14 @@ public:
         cout << "Percentage: " << percent << endl;
         cout << "Grade: " << grade << endl;
     }
+    ~result()
+    {
+        cout << "\nDestructor is called for class result\n";
+    }
 };
 
 int main()
 {
-    result ob1_243;
     char name_243[20];
     int roll_243, age_243, marks_243[3], act_243[2];
 
@@ -123,20 +142,16 @@ int main()
     cout << "Enter marks: " << endl;
     for (int i_243 = 0; i_243 < 3; i_243++)
     {
-        cout << "Marks " << i_243 << ":";
+        cout << "Marks " << i_243+1 << ":";
         cin >> marks_243[i_243];
     }
     cout << "Enter activity marks: " << endl;
     cout << "Activity 1: ";
     cin >> act_243[0];
-    cout << "Activity 1: ";
+    cout << "Activity 2: ";
     cin >> act_243[1];
     cout<<endl;
-
-    ob1_243.getdata_Stud(name_243, roll_243, age_243);
-    ob1_243.getdata_Test(marks_243);
-    ob1_243.setdata_Act(act_243);
-    ob1_243.showTotal();
-    ob1_243.display();
+    result r1_243(name_243,roll_243,age_243,marks_243,act_243);
+    r1_243.display();
     return 0;
 }
