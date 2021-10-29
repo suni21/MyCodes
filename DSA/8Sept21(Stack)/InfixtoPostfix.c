@@ -38,13 +38,27 @@ int push(struct stack *st, int x)
         isFull(*st);
     }
 }
+char pop(struct stack *st)
+{
+    if(!isEmpty(*st))
+    {
+        char data;
+        data = st->arr[st->top];
+        st->top--;
+        return data;
+    }
+    else
+    {
+        isEmpty(*st);
+    }
+}
 
 char stackTop(struct stack st)
 {
     return st.arr[st.top];
 }
 
-int precedence(char ch)
+int pre(char ch)
 {
     if (ch == '^')
         return 4;
@@ -56,7 +70,7 @@ int precedence(char ch)
         return 0;
 }
 
-int isParanthesis(char ch)
+int para (char ch)
 {
     if(ch == '(' || ch == ')')
         return 1;
