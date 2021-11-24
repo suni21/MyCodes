@@ -18,7 +18,7 @@ public:
     }
     void display()
     {
-        cout << feet_243 << " feet " << inch_243 << " inch ";
+        cout << feet_243 << " feet " << inch_243 << " inch";
     }
     friend binary operator+(int, binary);
 };
