@@ -17,17 +17,49 @@ struct node* createNode(int n) //create node and return address
     return ptr;
 }
 
+int lengthNode(struct node *head)
+{
+    int count = 0;
+    while (head)
+    {
+        count++;
+        head = head->next;
+    }
+    return count;
+}
 void display(struct node *ptr)
 {
-    while (ptr!= NULL)
+    while(ptr!=NULL)
     {
-        printf("%d-->", ptr->data);
-        ptr = ptr->next;
+        printf("%d-->",ptr->data);
+        ptr=ptr->next;
     }
     printf("NULL\n");
 }
 
-int lengthOfNode()
+int main()
 {
-    
+    struct node *ptr;
+    int n, i;
+    ptr=createNode(n);
+    head=ptr;
+    printf("Enter data: ");
+
+       do{
+        printf("\nEnter the data for node: ");
+        scanf("%d", &n);
+        ptr=createNode(n);
+        struct node *tail = head;
+        while(tail->next!=NULL)
+        {
+            tail = tail->next; 
+        }
+        tail->next = ptr;
+        printf("\nEnter (1/0) to add node or to stop: ");
+        scanf("%d", &i);
+    }while(i);
+    display(head);
+    printf("Length of list: %d\n", lengthNode(head));
+
+    return 0;
 }

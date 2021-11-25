@@ -75,8 +75,8 @@ void dequeue(struct QueueCir *que)
 
 int main()
 {
-    struct QueueCir q = (struct QueueCir*)malloc(sizeof(struct QueueCir));
-    q->r = q->f = -1;
+    struct QueueCir *q = (struct QueueCir*)malloc(sizeof(struct QueueCir));
+    q->rear = q->front = -1;
     q->size = 5;
     q->arr = (int*)malloc(q->size * sizeof(int));
     int a;

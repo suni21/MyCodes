@@ -8,7 +8,7 @@ void createFixRow(int r)
     scanf("%d", &c);
     for(int i = 0; i < r; i++)
     {
-        arr[i] = (int*)malloc(c * sizeof(int));
+        arr[r] = (int*)malloc(c * sizeof(int));
     }
     for(int i = 0; i < r; i++)
     {
@@ -30,9 +30,9 @@ void createFixRow(int r)
 
 }
 
-void createFixColumn(int c, int *arr)
+void createFixColumn(int c)
 {
-    int r;
+    int r , *arr;
     printf("Enter the number of row: ");
     scanf("%d", &r);
     int (*arr)[c] = (int(*)[])malloc(r * c * sizeof(int));
@@ -42,7 +42,7 @@ void createFixColumn(int c, int *arr)
         for(int j = 0; j < c; j++)
         {
             printf("Enter the element arr[%d][%d]: ", i, j);
-            scanf("%d", &arr[i][j]);
+            scanf("%d", &arr[i]);
         }
     }
     
@@ -50,7 +50,7 @@ void createFixColumn(int c, int *arr)
     {
         for(int j = 0; j < c; j++)
         {
-            printf("%d ", arr[i][j]);
+            printf("%d ", arr[i]);
         }
         printf("\n");
     }
@@ -68,7 +68,7 @@ void createVariable(int r, int c)
         for(int j = 0; j < c; j++)
         {
             printf("Enter the element arr[%d][%d]: ", i, j);
-            scanf("%d", &arr[i][j]);
+            scanf("%d", &arr[i]);
         }
     }
     
@@ -76,7 +76,7 @@ void createVariable(int r, int c)
     {
         for(int j = 0; j < c; j++)
         {
-            printf("%d ", arr[i][j]);
+            printf("%d ", arr[i]);
         }
         printf("\n");
     }

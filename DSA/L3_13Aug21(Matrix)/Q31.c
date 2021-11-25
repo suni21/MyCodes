@@ -23,12 +23,12 @@ int main()
 {
     
     int ar[3][3];
-    int *arr = (int)malloc(3 * sizeof(int));
+    int *arr = (int*)malloc(3 * sizeof(int));
     for(int i = 0; i < 3; i++)
     {
         arr[i] = (int*)malloc(3 * sizeof(int));
     }
-    swapColumn(arr,3);
+    swapColumn(arr);
     print(arr, 3, 3);
     return 0;
 }
