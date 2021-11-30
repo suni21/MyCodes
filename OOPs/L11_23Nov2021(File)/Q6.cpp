@@ -1,36 +1,52 @@
 #include<iostream>
 #include<fstream>
-#include<string.h>
+#include<cstring>
+
 using namespace std;
 
 int main()
 {
     fstream f1;
-    char ch ,u;
+    char ch[20] , c;
 
-    f1.open("name.txt",ios::in);
+    f1.open("Convert.txt",ios::in | ios :: out);
     if(!f1)
     {
-        cout<<"Error.\nFile not found";
+        cout << "File not available\n";
         exit(1);
     }
-   
-   if(islower(ch))
-    {
-        ch = isupper(ch);
-        cout << ch;
-    }
+    cout<<"Enter string to convert:";
+    cin>>ch;
 
-    while(ch != '.')
+    f1.seekp(0);
+    int i;
+    while(ch[i])
     {
-       if(ch>='A' && ch<='Z')
-     {
-        if(islower(ch))
+        f1.put(ch[i]);
+        i++;
+    }
+    f1.seekg(0);
+    while(f1)
+    {
+        f1.get(c);
+        if(islower(c))
         {
-            ch = toupper(ch);
-            cout << ch;
+        c = c-32;
         }
-     }
+        else if(isupper(c))
+        {
+            c = c+32;
+        }
+        f1.seekg(-1,ios::cur);
+        f1.put(c);
+    }
+    f1.clear();
+    cout<<f1.tellg()<<endl;
+    f1.seekg(0);
+    while(f1.eof() == 0)
+    {
+        f1.get(c);
+        cout << c;
     }
     f1.close();
 
