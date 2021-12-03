@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct Queue
 {
@@ -7,11 +7,11 @@ struct Queue
     int r;
     int size;
     int *arr;
-}Queue;
+} Queue;
 
 int isFull(struct Queue *q)
 {
-    return (q->r == q->size -1);
+    return (q->r == q->size - 1);
 }
 
 int isEmpty(struct Queue *q)
@@ -21,11 +21,11 @@ int isEmpty(struct Queue *q)
 
 void enqueue(struct Queue *q, int element)
 {
-    if(isFull(q))
+    if (isFull(q))
     {
         printf("Queue Overflow!\n");
     }
-    else if(isEmpty(q))
+    else if (isEmpty(q))
     {
         q->f = q->r = 0;
         q->arr[q->r] = element;
@@ -41,15 +41,14 @@ void enqueue(struct Queue *q, int element)
 
 void dequeue(struct Queue *q)
 {
-    if(isEmpty(q))
+    if (isEmpty(q))
     {
         printf("Queue is empty!\n");
     }
-    else if(q->f == q->r)
+    else if (q->f == q->r)
     {
         printf("%d dequeued!\n", q->arr[q->f]);
         q->f = q->r = -1;
-
     }
     else
     {
@@ -59,7 +58,7 @@ void dequeue(struct Queue *q)
 
 void traversal(struct Queue *q)
 {
-    for(int i = q->f; i <= q->r; i++)
+    for (int i = q->f; i <= q->r; i++)
     {
         printf("%d ", q->arr[i]);
     }
@@ -73,11 +72,11 @@ int peek(struct Queue *q)
 
 int main()
 {
-   struct Queue *q = (struct Queue*)malloc(sizeof(Queue));
+    struct Queue *q = (struct Queue *)malloc(sizeof(Queue));
     q->f = q->r = -1;
     printf("Enter the size of queue: ");
     scanf("%d", &q->size);
-    q->arr = (int*)malloc(q->size * sizeof(int));
+    q->arr = (int *)malloc(q->size * sizeof(int));
     int a;
     do
     {
@@ -88,7 +87,7 @@ int main()
         {
         case 1:
         {
-            if(isEmpty(q))
+            if (isEmpty(q))
                 printf("Queue is empty!\n");
             else
                 printf("Queue is not empty!\n");
@@ -96,7 +95,7 @@ int main()
         }
         case 2:
         {
-            if(isFull(q))
+            if (isFull(q))
                 printf("Queue is Full!\n");
             else
                 printf("Queue is not Full!\n");
@@ -125,8 +124,7 @@ int main()
             printf("%d is first element!\n", peek(q));
             break;
         }
-
         }
-    }while(a); 
+    } while (a);
     return 0;
 }

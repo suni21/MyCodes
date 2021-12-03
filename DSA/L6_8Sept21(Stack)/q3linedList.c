@@ -27,24 +27,24 @@ void push(struct stack **top, int val)
     {
         printf("Stack overflow");
     }
-    else if(isEmpty(*top))
+    else if (isEmpty(*top))
     {
-        *top=(struct stack*)malloc(sizeof(struct stack));
+        *top = (struct stack *)malloc(sizeof(struct stack));
         (*top)->data = val;
         (*top)->next = NULL;
     }
-    else 
+    else
     {
         struct stack *temp = (struct stack *)malloc(sizeof(struct stack));
         temp->data = val;
         temp->next = *top;
-        *top=temp;
+        *top = temp;
     }
 }
 int pop(struct stack **top)
 {
-    int val=-1;
-    
+    int val = -1;
+
     if (isEmpty(top))
     {
         printf("stack underflow");
@@ -52,8 +52,8 @@ int pop(struct stack **top)
     }
     else
     {
-        struct stack *temp=*top;
-        val=(*top)->data;
+        struct stack *temp = *top;
+        val = (*top)->data;
         *top = (*top)->next;
         free(temp);
         return val;
@@ -72,14 +72,14 @@ int main()
 {
     struct stack *top = NULL;
     int a;
-        printf("Press:");
-        printf("1 for checking if stack is empty\n");
-        printf("2 to print elements of stack\n");
-        printf("3 to push \n");
-        printf("4 pop\n ");
+    printf("Press:");
+    printf("1 for checking if stack is empty\n");
+    printf("2 to print elements of stack\n");
+    printf("3 to push \n");
+    printf("4 pop\n ");
     do
     {
-       
+
         printf("Enter your choice:");
         scanf("%d", &a);
         switch (a)
@@ -103,7 +103,7 @@ int main()
         }
         case 3:
         {
-             int data;
+            int data;
             printf("Enter the data to push: ");
             scanf("%d", &data);
             push(&top, data);
@@ -112,8 +112,8 @@ int main()
         case 4:
         {
             int p;
-            p=pop(&top);
-            printf("popper %d\n",p);
+            p = pop(&top);
+            printf("popper %d\n", p);
             // printf("Enter the number of Elements to pop");
             // scanf("%d", &p);
             // for (int i = 0; i < p; i++)
@@ -123,8 +123,7 @@ int main()
             // }
             break;
         }
-    
-       }
-    }while(a);
+        }
+    } while (a);
     return 0;
 }

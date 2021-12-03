@@ -1,5 +1,5 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,13 +7,13 @@ int main()
 {
     ifstream fin("Student.txt");
     char ch;
-    if(!fin)
+    if (!fin)
     {
         cout << "File not available\n";
         exit(1);
     }
 
-    while(fin)
+    while (fin)
     {
         fin >> ch;
         cout << ch;

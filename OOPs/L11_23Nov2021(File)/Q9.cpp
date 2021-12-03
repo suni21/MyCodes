@@ -22,6 +22,6 @@ int main()
     cout << "\nData from file: \n";
     f1.seekg(0);
     f1 >> ch;
-    cout << ch<<endl;
+    cout << ch << endl;
     return 0;
 }

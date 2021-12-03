@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct QueueCir
 {
@@ -7,27 +7,27 @@ struct QueueCir
     int rear;
     int size;
     int *arr;
-}Queue;
+} Queue;
 
 int isFull(struct QueueCir que)
 {
-    if((que.rear+1)%que.size==que.front)
-    return 1;
-    else 
-    return 0;
+    if ((que.rear + 1) % que.size == que.front)
+        return 1;
+    else
+        return 0;
 }
 
 int isEmpty(struct QueueCir que)
 {
-    if(que.front==-1 && que.rear==-1)
-    return 1;
-    else 
-    return 0;
+    if (que.front == -1 && que.rear == -1)
+        return 1;
+    else
+        return 0;
 }
 
 void traversal(struct QueueCir *que)
 {
-    for(int i = que->front; i != que->rear; i = (i+1)%que->size)
+    for (int i = que->front; i != que->rear; i = (i + 1) % que->size)
     {
         printf("%d ", que->arr[i]);
     }
@@ -36,7 +36,7 @@ void traversal(struct QueueCir *que)
 
 void enqueue(struct QueueCir *que, int data)
 {
-    if(isFull(*que))
+    if (isFull(*que))
     {
         printf("Queue Overflow\n");
     }
@@ -56,11 +56,11 @@ void enqueue(struct QueueCir *que, int data)
 
 void dequeue(struct QueueCir *que)
 {
-    if(isEmpty(*que))
+    if (isEmpty(*que))
     {
         printf("Queue Underflow\n");
     }
-    else if(que->rear == 0 && que->front == 0)
+    else if (que->rear == 0 && que->front == 0)
     {
         printf("Dequeued item%d\n", que->arr[que->front]);
         que->rear = que->front = -1;
@@ -70,15 +70,14 @@ void dequeue(struct QueueCir *que)
         printf("Dequeued element %d\n", que->arr[que->front]);
         que->front = (que->front + 1) % que->size;
     }
-    
 }
 
 int main()
 {
-    struct QueueCir *q = (struct QueueCir*)malloc(sizeof(struct QueueCir));
+    struct QueueCir *q = (struct QueueCir *)malloc(sizeof(struct QueueCir));
     q->rear = q->front = -1;
     q->size = 5;
-    q->arr = (int*)malloc(q->size * sizeof(int));
+    q->arr = (int *)malloc(q->size * sizeof(int));
     int a;
     do
     {
@@ -89,7 +88,7 @@ int main()
         {
         case 1:
         {
-            if(isEmpty(*q))
+            if (isEmpty(*q))
                 printf("Queue is empty!\n");
             else
                 printf("Queue is not empty!\n");
@@ -97,7 +96,7 @@ int main()
         }
         case 2:
         {
-            if(isFull(*q))
+            if (isFull(*q))
                 printf("Queue is Full!\n");
             else
                 printf("Queue is not Full!\n");
@@ -121,8 +120,7 @@ int main()
             dequeue(q);
             break;
         }
-
         }
-    }while(a);
+    } while (a);
     return 0;
 }

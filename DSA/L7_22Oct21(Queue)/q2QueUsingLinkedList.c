@@ -1,33 +1,33 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct node
 {
     int data;
     struct node *next;
-};  
+};
 
 int isEmpty(struct node *front)
 {
-    if (front== NULL)
-    return 1;
-    else 
-    return 0;
+    if (front == NULL)
+        return 1;
+    else
+        return 0;
 }
 
 int isFull()
 {
-    struct node *ptr = (struct node*)malloc(sizeof(struct node));
-    if(ptr == NULL)
-    return 1;
-    else 
-    return 0;
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    if (ptr == NULL)
+        return 1;
+    else
+        return 0;
 }
 
 void enqueue(struct node **front, struct node **rear, int x)
 {
-    struct node *ptr = (struct node*)malloc(sizeof(struct node));
-    if(ptr == NULL)
+    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    if (ptr == NULL)
     {
         printf("Queue Overflow\n");
     }
@@ -36,7 +36,7 @@ void enqueue(struct node **front, struct node **rear, int x)
         ptr->data = x;
         ptr->next = NULL;
 
-        if(*front == NULL)
+        if (*front == NULL)
         {
             *front = *rear = ptr;
         }
@@ -52,7 +52,7 @@ void enqueue(struct node **front, struct node **rear, int x)
 void dequeue(struct node **front)
 {
     struct node *ptr = *front;
-    if(isEmpty(*front))
+    if (isEmpty(*front))
     {
         printf("Queue Underflow\n");
     }
@@ -61,12 +61,12 @@ void dequeue(struct node **front)
         *front = (*front)->next;
         printf("%d dequeued\n", ptr->data);
         free(ptr);
-    }   
+    }
 }
 
 void traversal(struct node *front)
 {
-    while(front)
+    while (front)
     {
         printf("%d--->", front->data);
         front = front->next;
@@ -77,7 +77,7 @@ void traversal(struct node *front)
 int peek(struct node *front)
 {
     int val = -1;
-    if(front == NULL)
+    if (front == NULL)
         printf("Empty queue!");
     else
         val = front->data;
@@ -86,7 +86,7 @@ int peek(struct node *front)
 
 int main()
 {
-    struct node *front = NULL,*rear = NULL;
+    struct node *front = NULL, *rear = NULL;
     int ch;
     printf("Press:");
     printf("\n1 for checking queue is empty or not");
@@ -96,7 +96,7 @@ int main()
     printf("\n5 for Dequeue");
     printf("\n6 for peek");
     printf("\n7 to exit\n");
-    
+
     do
     {
         printf("Enter the choice:");
@@ -105,7 +105,7 @@ int main()
         {
         case 1:
         {
-            if(isEmpty(front))
+            if (isEmpty(front))
                 printf("Queue is empty\n");
             else
                 printf("Queue is not empty\n");
@@ -113,7 +113,7 @@ int main()
         }
         case 2:
         {
-            if(isFull())
+            if (isFull())
                 printf("Queue is Full\n");
             else
                 printf("Queue is not Full\n");
@@ -147,6 +147,6 @@ int main()
             break;
         }
         }
-    }while(ch);
+    } while (ch);
     return 0;
 }

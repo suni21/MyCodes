@@ -1,6 +1,6 @@
-#include<iostream>
-#include<fstream>
-#include<string.h>
+#include <iostream>
+#include <fstream>
+#include <string.h>
 
 using namespace std;
 int main()
@@ -9,18 +9,18 @@ int main()
      fin.open("FIRST.txt");
      ofstream fout;
      fout.open("SECOND.txt");
-     if(!fin|| !fout)
+     if (!fin || !fout)
      {
-        cout << "File not available\n";
-        exit(1);
-    }
+          cout << "File not available\n";
+          exit(1);
+     }
      char ch;
-     while(!fin.eof())
+     while (!fin.eof())
      {
           fin.get(ch);
           fout.put(ch);
      }
-     cout<<"\n Data has been copied\n";
+     cout << "\n Data has been copied\n";
      fin.close();
      fout.close();
      return 0;

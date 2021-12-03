@@ -1,20 +1,20 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
     fstream fin;
-    fin.open("WriteString.txt", ios :: out);
-    if(!fin)
+    fin.open("WriteString.txt", ios ::out);
+    if (!fin)
     {
         cout << "File not available\n";
         exit(1);
     }
     string str;
     cout << "Enter strings(10)\n";
-    for(int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         cout << "\nEnter:";
         cin >> str;
@@ -22,8 +22,8 @@ int main()
     }
     fin.close();
 
-    fin.open("WriteString.txt", ios :: in);
-    for(int i = 0; i < 10; i++)
+    fin.open("WriteString.txt", ios ::in);
+    for (int i = 0; i < 10; i++)
     {
         fin >> str;
         cout << str << endl;

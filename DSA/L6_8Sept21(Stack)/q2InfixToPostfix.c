@@ -38,7 +38,7 @@ void push(struct stack *st, int x)
 }
 char pop(struct stack *st)
 {
-    if(!isEmpty(*st))
+    if (!isEmpty(*st))
     {
         char data;
         data = st->arr[st->top];
@@ -70,42 +70,42 @@ int pre(char ch)
 
 int para(char ch)
 {
-    if(ch == '(' || ch == ')')
+    if (ch == '(' || ch == ')')
         return 1;
-    else    
+    else
         return 0;
 }
 
 int isOperator(char ch)
 {
-    if(ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-')
+    if (ch == '^' || ch == '*' || ch == '/' || ch == '+' || ch == '-')
         return 1;
-    else 
+    else
         return 0;
 }
 
 int infixToPostfix(char *infix)
 {
     int x = 0;
-    char *post = (char*)malloc(strlen(infix) * sizeof(char));
+    char *post = (char *)malloc(strlen(infix) * sizeof(char));
     int c = 0;
 
-    struct stack *s = (struct stack*)malloc(sizeof(stack));
+    struct stack *s = (struct stack *)malloc(sizeof(stack));
     s->size = strlen(infix);
     s->top = -1;
-    s->arr = (char*)malloc(s->size * sizeof(char));
-    s->arr[++s->top]='(';
+    s->arr = (char *)malloc(s->size * sizeof(char));
+    s->arr[++s->top] = '(';
 
-    while(infix[x] != ')')
+    while (infix[x] != ')')
     {
-        if(!isOperator(infix[x]) && !para(infix[x]))
+        if (!isOperator(infix[x]) && !para(infix[x]))
         {
             post[c++] = infix[x];
             x++;
         }
-        else if(isOperator(infix[x]))
+        else if (isOperator(infix[x]))
         {
-            if(pre(stackTop(*s)) >= pre(infix[x]))
+            if (pre(stackTop(*s)) >= pre(infix[x]))
             {
                 post[c++] = pop(s);
                 push(s, infix[x]);
@@ -117,11 +117,11 @@ int infixToPostfix(char *infix)
                 x++;
             }
         }
-        else if(para(infix[x]))
+        else if (para(infix[x]))
         {
-            if(infix[x] == ')')
+            if (infix[x] == ')')
             {
-                while(s->arr[s->top] != '(')
+                while (s->arr[s->top] != '(')
                 {
                     post[c++] = pop(s);
                 }
@@ -136,12 +136,12 @@ int infixToPostfix(char *infix)
         }
     }
     post[c] = '\0';
-    printf("%d",post);
+    printf("%d", post);
 }
 
 int main()
 {
-    char *infixEqn =(char*)malloc(20 * sizeof(char)); //"a+(b*c-(d/e^f)*g*h)"
+    char *infixEqn = (char *)malloc(20 * sizeof(char)); //"a+(b*c-(d/e^f)*g*h)"
     printf("Enter infix equation:");
     gets(infixEqn);
     const char *s2 = {")"};
