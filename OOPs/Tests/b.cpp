@@ -1,16 +1,31 @@
 #include <iostream>
 using namespace std;
 
+class a
+{
+    public:
+    virtual void display()
+    {
+        cout<<"in a";
+    }
+};
+class b: public a
+{
+    public:
+    void print()
+    {
+        cout<<"in b";
+    }
+};
+class c: public b
+{
+    void mydisplay()
+    {
+        cout<<"in c";
+    }
+};
 int main()
 {
-int i;
-for(i = 1; i <= 6; i += 2)
-{
-if(i%2 == 0)
-cout << i++ << "*\n";
-else
-cout << ++i << "#\n";
-}
-cout << i << "*\n";
+cout<<"size pf class c"<<sizeof(c);
 return 0;
 }

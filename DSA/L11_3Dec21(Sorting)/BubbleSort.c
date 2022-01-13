@@ -21,23 +21,24 @@ void bubblessort(int arr[])
 }
 
 int main()
-{   int n;
+{
+    int n;
     char date[2][2];
 
     printf("Enter no of dates to be sorted:");
-    scanf("%d",n);
+    scanf("%d", n);
     printf("Enter dates in ddmmyy format: \n");
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d \n",i+1);
-        scanf("%s",&date[i]);
+        printf("%d \n", i + 1);
+        scanf("%s", &date[i]);
     }
 
     printf("\n\nSorted dates: \n");
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        bubblessort(date);    
+        bubblessort(date);
     }
-    
- return 0;
+
+    return 0;
 }
