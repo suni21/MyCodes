@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(0, 255, 119);
+}
+p{
+    text-align: center;
+    font-size: 50;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text{
+    font-size: 12;
+    font-family: 'Times New Roman', Times, serif;
+}
