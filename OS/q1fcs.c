@@ -1,3 +1,7 @@
+/* Name:Suniti
+Rollno:2006243
+*/ 
+
 #include<stdio.h>
 
 int main()
@@ -7,9 +11,7 @@ int main()
 	int pr, add=0;
 	int total_TAT=0, total_WT=0;
     float avg_TAT, avg_WT;
-
     int i,j;
-
 
 	printf("Enter no. of processes: ");
 	scanf("%d",&pr);
@@ -85,24 +87,6 @@ for ( i=0; i<pr; i++)
     avg_WT=total_WT/pr;
 	printf("\n\nAverage Turnaround Time= %f\n",avg_TAT);
 	printf("Average Waiting time= %f\n\n",avg_WT);
-	
-  printf("\n");
-    for ( i=0; i<pr; i++) 
-        {
-            printf("|   P%d    ",p[i]);
-            printf("  ");
-        }  
-    printf("\n");   
-    printf("0");
-    for ( i=0; i<pr; i++) 
-        {   
-             for ( j=0; j<bt[i]; j++) 
-                 {
-                     printf("  ");
-                 }
-              if(tat[i]>9)
-                  printf("\b");
-                printf("%d", tat[i]);     
-        }      
+	    
 	return 0;
 }
