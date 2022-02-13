@@ -7,7 +7,7 @@ Rollno:2006243
 int main()
 {
 
-	int p[10]={0}, bt[10]={0}, at[10]={0}, tat[10]={0}, wt[10]={0}, ct[10]={0};
+	int p[5]={0}, bt[5]={0}, at[5]={0}, tat[5]={0}, wt[5]={0}, ct[5]={0};
 	int pr, add=0;
 	int total_TAT=0, total_WT=0;
     float avg_TAT, avg_WT;
@@ -36,23 +36,23 @@ int main()
     	printf("\n");	
          
 // sorting arival time and busttime
-    for (i = 0; i < pr; i++)
+  for (i = 0; i < pr - 1; i++)
     {
-        for (j = 0 ; j < pr ; j++)
+        for (j = 0 ; j < pr - i - 1 ; j++)
         {
-            if(at[i]<at[j])
+            if(at[j]>at[j+1])
               {
                 int temp=p[j];
-                p[j]=p[i];
-                p[i]=temp;
+                p[j]=p[j+1];
+                p[j+1]=temp;
 
                 temp=at[j];
-                at[j]=at[i];
-                at[i]=temp;
+                at[j]=at[j+1];
+                at[j+1]=temp;
 
                 temp=bt[j];
-                bt[j]=bt[i];
-                bt[i]=temp;
+                bt[j]=bt[j+1];
+                bt[j+1]=temp;
 
               }
         }

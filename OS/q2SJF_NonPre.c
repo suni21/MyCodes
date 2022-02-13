@@ -7,7 +7,7 @@ Rollno:2006243
 int main()
 {
 
-    int p[10] = {0}, bt[10] = {0}, at[10] = {0}, tat[10] = {0}, wt[10] = {0}, ct[10] = {0};
+    int p[5] = {0}, bt[5] = {0}, at[5] = {0}, tat[5] = {0}, wt[5] = {0}, ct[5] = {0};
     int pr, add = 0;
     int total_TAT = 0, total_WT = 0;
     float avg_TAT, avg_WT;
