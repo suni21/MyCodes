@@ -81,8 +81,10 @@ int main()
 
     avg_TAT = total_TAT / pr;
     avg_WT = total_WT / pr;
-    printf("\n\nAverage Turnaround Time= %f\n", avg_TAT);
-    printf("Average Waiting time= %f\n\n", avg_WT);
+    printf("\nTotal Turnaround Time= %d\n", total_TAT);
+    printf("Avg Turnaround Time= %.3f\n", avg_TAT);
+    printf("\nTotal Waiting time= %d\n", total_WT);
+    printf("Avg Waiting time= %.3f\n\n", avg_WT);
 
     return 0;
 }

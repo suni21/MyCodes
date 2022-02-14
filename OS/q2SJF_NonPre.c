@@ -76,13 +76,13 @@ int main()
 		} m++;
 	}
 
-    for (j = 0; j < pr; j++)   //CompletionTime (CT)
+    for (j = 1; j < pr; j++)   //CompletionTime (CT)
     {
         add += bt[j];
         ct[j] += add;
     }
     wt[0] = 0;
-    for (i = 1; i < pr; i++)  // Watingtime (WT)
+    for (i = 0; i < pr; i++)  // Watingtime (WT)
     {
         tat[i]=ct[i]-at[i];
         wt[i]=tat[i]-bt[i];
