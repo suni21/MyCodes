@@ -1,24 +1,28 @@
 package Lab5;
+import java.util.Scanner;
 public class q1Greater {
-    public static void main(String arg[])
+    public static void main(String[] args) 
     {
-        int n1= Integer.parseInt(arg[0]);
-        int n2= Integer.parseInt(arg[1]);
-        int n3= Integer.parseInt(arg[2]);
+        int x, y, z;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter numbers:\n");
+        x = s.nextInt();
+        y = s.nextInt();
+        z = s.nextInt();
 
-        if(n1 > n2 && n1>n3)
+        if(x > y && x > z)
         {
-            System.out.println(n1+"is grater");
+            System.out.println(x+" is Greatest number");
         }
-        else if (n2>n1 && n2>n3)
+        else if(y > z)
         {
-            System.out.println(n2+"is grater");
+            System.out.println(y+" is Greatest number");
         }
         else
         {
-            System.out.println(n3+"is grater");
+            System.out.println(z+" is Greatest number");
         }
-
+        s.close();
     }
 
 }

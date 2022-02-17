@@ -2,35 +2,65 @@ package Lab6;
 
 import java.util.Scanner;
 
-class q5Student
-{
+class Students
+ {
     int rollNo;
     String name;
-    float cgpa;
+    double cgpa;
 
-   public q5Student(int r, String na, float c)
+    Students() 
     {
-        rollNo=r;
-        name=na;
-        cgpa=c;
-    }   
-}
+      rollNo=0;
+      name=" ";
+      cgpa=0.00;
+    }
 
-public void main(String[] arg)
+    Students(int r, String na, double c) 
+    {
+        rollNo = r;
+        name = na;
+        cgpa = c;
+    }
+
+}
+class Stud
 {
+    public static void main(String[] arg)
+     {
         Scanner in = new Scanner(System.in);
-		System.out.println("Enter size= ");
-		int n = Integer.parseInt(in.nextLine().trim());
-		System.out.println("Enter Roll no= ");
-        System.out.println("Enter Name= ");
-        System.out.println("Enter CGPA= ");
+        System.out.println("Enter size= ");
+        int n = Integer.parseInt(in.nextLine().trim());
+        System.out.println("Enter RollNo, Name, CGPA: ");
+        Students stu = new Students();
+        Students max = new Students();
+        Students min = new Students(0, " ",10);
 
-		q5Student stu = new q5Student();
-		for (int i = 0; i < n; i ++) {
-			stu.rollNo = in.nextInt();
-			stu.name = in.next();
-			stu.cgpa = in.nextFloat();
-  
+        for (int i = 0; i < n; i++) 
+        {
+            stu.rollNo = in.nextInt();
+            stu.name = in.next();
+            stu.cgpa = in.nextFloat();
+            if (max.cgpa < stu.cgpa) 
+            {
+                max.rollNo = stu.rollNo;
+                max.name = stu.name;
+                max.cgpa = stu.cgpa;
+            }
+
+            if (min.cgpa > stu.cgpa)
+             {
+                min.rollNo = stu.rollNo;
+                min.name = stu.name;
+                min.cgpa = stu.cgpa;
+            }
+        }
+            System.out.println("\nRollno= "+ max.rollNo);
+            System.out.println("Name= "+ max.name);
+            System.out.println("Cgpa= "+ max.cgpa);
+
+            System.out.println("\nRollno= "+ min.rollNo);
+            System.out.println("Name= "+ min.name);
+            System.out.println("Cgpa= "+ min.cgpa);
+            in.close();
+    }
 }
-
-

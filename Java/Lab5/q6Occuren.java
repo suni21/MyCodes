@@ -5,10 +5,10 @@ public class q6Occuren {
     {
         int n, x, count = 0;
         Scanner s = new Scanner(System.in);
-        System.out.print("Enter size of elements:");
+        System.out.print("Enter size: ");
         n = s.nextInt();
         int a[] = new int[n];
-        System.out.println("Enter elements in array:");
+        System.out.println("Enter elements:");
         for(int i = 0; i < n; i++)
         {
             a[i] = s.nextInt();
