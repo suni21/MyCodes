@@ -1,3 +1,7 @@
+/* Name:Suniti
+   Rollno:2006243
+*/
+
 /*
 PID    AT   BT
 P1      0      5
@@ -5,73 +9,117 @@ P2      1      4
 P3      2      2
 P4      4      1
 */
-#include<stdio.h>
+#include <stdio.h>
+struct RoundRobin
+{
+    int Pid;
+    int AT;
+    int BT;
+    int WT;
+    int TAT;
+    int CT;
+};
+struct RoundRobin rr[10];
+
+int rear = -1, front = -1;
+int q[10];
+
+void insertion(int pr)
+{
+    if (front == -1)
+    {
+        front = 0;
+        rear = rear + 1;
+        q[rear] = pr;
+    }
+}
+
+int deletion()
+{
+    int pr;
+    pr = q[front];
+    front = front + 1;
+    return pr;
+}
+
 int main()
 {
-	int i, pr, total = 0, x, counter = 0, time_quantum;
-	int wt, tat, at[10]={0}, bt[5]={0},p[5]={0};
-	float avg_WT, avg_TAT;
-	printf("Enter no. of Processes: \n");
-	scanf("%d", &pr);
-	x = pr;
+    int pr, i, x, time = 0, temp[5], end[5]={0};
+    int total_TAT = 0, total_WT = 0;
+    float avg_TAT, avg_WT, time_quantum;
 
+    printf("Enter no. of processes: ");
+    scanf("%d", &pr);
+
+    printf("\nEnter Arrivaltime= \n"); // Arrival time (AT)
+    for (i = 0; i < pr; i++)
+    {
+        printf("P[%d]= ", i+1);
+        scanf("%d", &rr[i].AT);
+        rr[i].Pid = i+1;
+    }
+    printf("\nEnter Busttime= \n"); // Bust time(BT)
+    for (i = 0; i < pr; i++)
+    {
+        printf("P[%d]= ", i+1);
+        scanf("%d", &rr[i].BT);
+        rr[i].Pid = i+1;
+        temp[i]=rr[i].BT;
+    }
     printf("Enter Time Quantum: \n");
-	scanf("%d", &time_quantum);
+    scanf("%d", &time_quantum);
 
-    printf("Enter Arrivaltime= \n");    // Arrival time (AT)
-    for (i = 0; i < pr; i++)
-    {
-        printf("P[%d]= ", i + 1);
-        scanf("%d", &at[i]);
-        p[i] = i + 1;
-    }
+    insertion(0);
+    end[0] = 1;
 
-    printf("Enter Busttime=");    // Bust time(BT)
-    for (i = 0; i < pr; i++)
+    while (front <= rear)
     {
-        printf("P[%d]= ", i + 1);
-        scanf("%d", &bt[i]);
-        p[i] = i + 1;
+        x = deletion();
+
+        if (rr[x].BT >= time_quantum)
+        {
+            rr[x].BT = rr[x].BT - time_quantum;
+            time = time + time_quantum;
+        }
+        else
+        {
+            time = time + rr[x].BT;
+            rr[x].BT = 0;
+        }
+        for (int i = 0; i < pr; i++)
+        {
+            if (end[i] == 0 && rr[i].AT <= time)
+            {
+                insertion(i);
+                end[i] = 1;
+            }
+        }
+        if (rr[x].BT == 0)
+        {
+            time = rr[x].BT;
+            rr[x].CT = time + rr[x].BT;
+            rr[x].TAT = time - rr[x].AT;
+            rr[x].WT = rr[x].TAT - temp[x];
+
+            total_TAT = total_TAT + rr[x].TAT;
+            total_WT = total_WT + rr[x].WT;
+        }
+        else
+        {
+            insertion(x);
+        }
+
+        printf("PID\t AT\t BT\t TAT\t WT\t\n");
+        printf("----------------------------------------------\n");
+        for (i = 0; i < pr; i++)
+        {
+            printf("P%d\t %d\t %d\t %d\t %d\n", rr[i].Pid, rr[i].AT, rr[i].BT,rr[i].TAT, rr[i].WT);
+        }
+        avg_TAT = total_TAT / pr;
+        avg_WT = total_WT / pr;
+        printf("\n\nAverage Turnaround Time= %.2f\n", avg_TAT);
+        printf("Average Waiting time= %.2f\n\n", avg_WT);
+
+        return 0;
     }
-	
-	printf("\nPID\tArrival Time\tBurst Time\tTurnaround Time\t Waiting Time\n");
-	for (total = 0, i = 0; x != 0;)
-	{
-		if (p[i] <= time_quantum && p[i] > 0)
-		{
-			total = total + p[i];
-			p[i] = 0;
-			counter = 1;
-		}
-		else if (p[i] > 0)
-		{
-			p[i] = p[i] - time_quantum;
-			total = total + time_quantum;
-		}
-		if (p[i] == 0 && counter == 1)
-		{
-			x--;
-			printf("\nP%d\t\t%d\t\t %d\t\t\t %d", p[i], at[i],bt[i], wt, tat);
-			wt = wt + total - at[i] - bt[i];
-			tat = tat + total - at[i];
-			counter = 0;
-		}
-		if (i == pr - 1)
-		{
-			i = 0;
-		}
-		else if (at[i + 1] <= total)
-		{
-			i++;
-		}
-		else
-		{
-			i = 0;
-		}
-	}
-	avg_WT = wt * 1.0 / pr;
-	avg_TAT = tat * 1.0 / pr;
-	printf("\n\nAverage Waiting Time:\t%f", avg_WT);
-	printf("\nAvg Turnaround Time:\t%f\n", avg_TAT);
-	return 0;
 }
