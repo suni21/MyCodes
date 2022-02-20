@@ -1,3 +1,15 @@
+/* Name:Suniti
+   Rollno:2006243
+*/
+
+/*
+PID     AT     BT
+P1      0      5
+P2      1      4
+P3      2      2
+P4      4      1
+*/
+
 #include <stdio.h>
 struct RoundRobin
 {
