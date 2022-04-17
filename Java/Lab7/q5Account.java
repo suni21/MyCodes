@@ -43,8 +43,8 @@ class Acc
 		Scanner in = new Scanner(System.in);
 
 		person obj = new person(2006243, 50000, "Suniti", 12345);
-        person obj1 = new person(2006207, 120000, "Ambarisha", 12345);
-        person obj2 = new person(2006226, 3000, "Mritynjay", 12345);
+        person obj1 = new person(2006207, 120000, "Aam", 12345);
+        person obj2 = new person(200008, 3000, "xyz", 12345);
 		obj.disp();
         System.out.println("\n");
         obj1.disp();

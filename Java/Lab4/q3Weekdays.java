@@ -5,8 +5,8 @@ public class q3Weekdays
     public static void main(String args []) {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter date= ");
-        int date = sc.nextInt();
-        switch (date) {
+        int d = sc.nextInt();
+        switch (d) {
 
             case 3, 10, 17, 24, 31:
                 System.out.println("Monday");

@@ -6,7 +6,7 @@ class sample
 {
 	sample(int a, int b) 
     {
-		System.out.println("Base Class Parameterized");
+		System.out.println("Parent/Base Class");
 		System.out.println("a= " + a + " b= " + b);
 	}
 }
@@ -16,7 +16,7 @@ class sample2 extends sample
 	sample2(int a, int b, int c) 
     {
 		super(a, b);
-		System.out.println("Derived Class Parameterized");
+		System.out.println("Child Class");
 		System.out.println("a= " + a + " b= " + b + " c= " + c);
 
 	}

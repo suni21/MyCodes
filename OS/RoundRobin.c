@@ -27,11 +27,9 @@ int q[10];
 void insertion(int pr)
 {
     if (front == -1)
-    {
         front = 0;
-        rear = rear + 1;
-        q[rear] = pr;
-    }
+    rear = rear + 1;
+    q[rear] = pr;
 }
 
 int deletion()

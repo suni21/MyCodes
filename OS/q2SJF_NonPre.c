@@ -52,29 +52,29 @@ int main()
 			}
 		}
 	}
-	for (j = 0; j < pr; j++)  //Sorting as per busttime
-	{
+	// for (j = 0; j < pr; j++)  //Sorting as per busttime
+	// {
         
-		btime = btime + bt[j];
-		min = bt[m];
-		for (i = m; i < pr; i++)
-		{
-			if (btime >= at[i] && bt[i] < min)
-             {
-				int temp = p[m];
-				p[m] = p[i];
-				p[i] = temp;
+	// 	btime = btime + bt[j];
+	// 	min = bt[m];
+	// 	for (i = m; i < pr; i++)
+	// 	{
+	// 		if (btime >= at[i] && bt[i] < min)
+    //          {
+	// 			int temp = p[m];
+	// 			p[m] = p[i];
+	// 			p[i] = temp;
 
-				temp = at[m];
-				at[m] = at[i];
-				at[i] = temp;
+	// 			temp = at[m];
+	// 			at[m] = at[i];
+	// 			at[i] = temp;
 
-				temp = bt[m];
-				bt[m] = bt[i];
-				bt[i] = temp;
-			}
-		} m++;
-	}
+	// 			temp = bt[m];
+	// 			bt[m] = bt[i];
+	// 			bt[i] = temp;
+	// 		}
+	// 	} m++;
+	// }
 
     for (j = 1; j < pr; j++)   //CompletionTime (CT)
     {

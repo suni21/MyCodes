@@ -5,7 +5,7 @@ class test
 {
 	void check() 
     {
-		System.out.println("Base Class Function");
+		System.out.println("Base/Parent Class");
 	}
 }
 
@@ -13,7 +13,7 @@ class test2 extends test
 {
 	void check() 
     {
-		System.out.println("Sub Class Function");
+		System.out.println("Sub/Child Class");
 	}
 }
 class Test3 

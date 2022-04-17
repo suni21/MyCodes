@@ -16,7 +16,7 @@ class Box extends plate
     int height;
     Box() 
     {
-        System.out.println("Parent Constructor Called");
+        System.out.println("Base Constructor Called");
     }
 }
 
@@ -25,7 +25,7 @@ class woodBox extends Box
     int thick;
     woodBox() 
     {
-        System.out.println("Child Constructor Called");
+        System.out.println("Sub Constructor Called");
     }
 }
 
