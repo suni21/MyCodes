@@ -17,12 +17,6 @@ class q1StudentAbstract
     }
 }
 
-abstract class student  //abstract class
-{
-    public int roll, reg;
-    abstract void course(int r, int re); //abstract method
-}
-
 class kiitian extends student 
 {
     void course(int r, int re) 
