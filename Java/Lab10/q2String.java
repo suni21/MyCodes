@@ -1,84 +1,70 @@
 package Lab10;
 
 import java.util.Scanner;
-public class q2String 
-{
-    //Case Conversion
-    public static String CaseReverse(String s) 
-    {
-		String case_rev= "";
-		int l = s.length();
 
-		for (int i = 0; i < l; i++)
-        {
-			char c = s.charAt(i);
-			if (c >= 97 && c <= 122) //for small letters
-            {
-				case_rev += (char)(c - 32);
-			} 
-            else if (c >= 65 && c <= 90) //for capital letters
-            {
-			case_rev += (char)(c + 32);
-			} 
-            else 
-            {
-				case_rev += (char)c;
-			}
-		}
-		return case_rev;
-	}
 
-    //String Reverse
-	public static String Reverse(String s)
-     {
-		String string_rev = "";
-		int l = s.length();
-		for (int i = 0; i < l; i++) 
-        {
-			string_rev = s.charAt(i) + string_rev;
-		}
-		return string_rev;
-	}
+public class q2String {
 
-    //String Comparision
-	public static String Compare(String s1, String s2) 
-    {
-		String string_com = (s1.compareTo(s2) > 0) ? s2 : s1;
-		return string_com;
+    public static void manualInsert(String s1, String s2, int i) {
+        String total = s1.substring(0, i+1) + s2 + s1.substring(i+1);
+        System.out.println("Total string after insertion of s2 into s1 at index i:- ");
+        System.out.println(total);
     }
 
-    //String Insertion 
-	static String Insert(String s1, String s2, int i) 
-    {
-		String ans = s1.substring(0, i) + s2 + s1.substring(i, s1.length());
-		return ans;
-	}
 
-	public static void main(String args[])
-    {
-		Scanner in = new Scanner(System.in);
-		System.out.print("Enter a string: ");
-		String s = in.nextLine();
+    public static void changeCase(String s1, String s2) {
+        System.out.println("Uppercase S1 "+ s1.toUpperCase());
+        System.out.println("Lowercase S1 "+ s1.toLowerCase());
+        System.out.println("Uppercase S2 "+ s2.toUpperCase());
+        System.out.println("Lowercase S2 "+ s2.toLowerCase());
+    }
 
-		String changed = CaseReverse(s);
-		System.out.println("Changed Case String: " + changed);
 
-		String case_rev = Reverse(s);
-		System.out.println("case_rev String: " + case_rev);
+    public static void compare(String s1, String s2) {
+        System.out.println("Comparing S1 with S2 :-");
+        if(s1.equals(s2)) {
+            System.out.println("S1 and S2 are equal");
+        } else {
+            System.out.println("S1 and S2 are unequal");
+        }
+    }
 
-		System.out.print("Enter one more String to compare: ");
-		String s1 = in.nextLine();
 
-		String greater = Compare(s, s1);
-		System.out.println("Greater String= " + greater);
+    public static void reverse(String s1, String s2) {
+        String rev = "";
+        System.out.println("Reversing String S1 :-");
+        for (int i=0; i<s1.length(); i++) {
+            char ch = s1.charAt(i);
+            rev = ch + rev;
+        }
+        System.out.println("Reversed String S1: "+ rev);
+        
+        rev = "";
+        System.out.println("Reversing String S2 :-");
+        for (int i=0; i<s2.length(); i++) {
+            char ch = s2.charAt(i);
+            rev = ch + rev;
+        }
+        System.out.println("Reversed String S2: "+ rev);
+    }
 
-		System.out.print("Enter the index where you want to enter 2nd string in the first: ");
-		int i = in.nextInt();
-		String inserted = Insert(s, s1, i);
-		System.out.println("Inserted String at " + i + " = " + inserted);
-        in.close();
 
-	}
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter 2 strings s1 & s2 :-");
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        
+        System.out.print("Enter the insertion index: ");
+        int i = sc.nextInt();
+
+        changeCase(s1, s2);
+        reverse(s1, s2);
+        compare(s1, s2);
+        manualInsert(s1, s2, i);
+        sc.close();
+    }
+
 
 }
-

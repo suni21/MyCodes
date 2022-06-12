@@ -1,4 +1,5 @@
 package Lab8;
+
 import java.util.Scanner;
 
 class q1StudentAbstract 
@@ -15,6 +16,11 @@ class q1StudentAbstract
         k.course(r, re);
         s.close();
     }
+}
+abstract class student  //abstract class
+{
+    public int roll, reg;
+    abstract void course(int r, int re); //abstract method
 }
 
 class kiitian extends student 
