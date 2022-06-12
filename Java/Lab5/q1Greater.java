@@ -14,7 +14,7 @@ public class q1Greater {
         {
             System.out.println(x+" is Greatest number");
         }
-        else if(y > z)
+        else if(y > z && y>x)
         {
             System.out.println(y+" is Greatest number");
         }
