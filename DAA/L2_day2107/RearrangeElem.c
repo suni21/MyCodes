@@ -27,7 +27,7 @@ int main()
     {
         for(int j=0;j<n;j++)
         {
-            if(arr[i]%2==0)
+            if(arr[i]%2!=0)
             {
              temp=arr[j];
              arr[j]=arr[i];
@@ -38,7 +38,7 @@ int main()
     printf("\nArray rearranged in even and odd order:\n");
     for(int i=0;i<n;i++)
     {
-        printf("%d\n",arr[i]);
+        printf("%d ",arr[i]);
     }
     return 0;
 }

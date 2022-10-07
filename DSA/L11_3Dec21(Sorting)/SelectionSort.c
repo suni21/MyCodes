@@ -19,7 +19,7 @@ void selectionSort(int *Arr, int n)
             if (Arr[j] < Arr[index])
                 index = j;
         }
-        swap(&Arr[i], &Arr[index]);
+        swap(&Arr[index], &Arr[i]);
     }
 }
 

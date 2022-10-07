@@ -1,0 +1,1 @@
+search(nums,n,key);
