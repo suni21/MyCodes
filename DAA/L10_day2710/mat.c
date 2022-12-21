@@ -41,24 +41,21 @@ int MatrixChainOrder(int p[], int i, int j)
 
     for (k = i; k < j; k++)
     {
-        count = MatrixChainOrder(p, i, k) +
-                MatrixChainOrder(p, k + 1, j) +
-                p[i - 1] * p[k] * p[j];
-
+        count = MatrixChainOrder(p, i, k) + MatrixChainOrder(p, k + 1, j) + p[i - 1] * p[k] * p[j];
         if (count < min)
             min = count;
     }
     return min;
 }
-void print_Matrix(int i, int j)
+void print_optimul_parens(int i, int j)
 {
     if (i == j)
         printf(" A%d ", i);
     else
     {
         printf("( ");
-        print_Matrix(i, s[i][j]);
-        print_Matrix(s[i][j] + 1, j);
+        print_optimul_parens(i, s[i][j]);
+        print_optimul_parens(s[i][j] + 1, j);
         printf(" )");
     }
 }
@@ -81,23 +78,6 @@ void main()
         scanf("%d", &p[k]);
     }
     matrixChainMul();
-    // printf("\nM Matrix:\n");
-    // for (i = 1; i <= n; i++)
-    //     for (j = i; j <= n; j++)
-    //         printf("m[%d][%d]: %ld\n", i, j, m[i][j]);
-
-    // printf("\nS Matrix:\n");
-    // for (i = 1; i <= n; i++)
-    //     for (j = i; j <= n; j++)
-    //         if(i==j)
-    //         {
-    //             continue;
-    //         }
-    //         else{
-    //         printf("s[%d][%d]: %ld\n", i, j, s[i][j]);
-    //         }
-
-    // printf("\n");
     printf("\nM Matrix:\n");
     for (i = 1; i <= n; i++)
     {
@@ -125,6 +105,6 @@ void main()
               
     i = 1, j = n;
     printf("Sequence: ");
-    print_Matrix(i, j);
+    print_optimul_parens(i, j);
     printf("\nMinimum number of multiplications: m[%d][%d]= %d ",i,j,MatrixChainOrder(p, 1, n));
 }

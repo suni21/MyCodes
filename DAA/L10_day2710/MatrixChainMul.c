@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <limits.h>
-#define MAX 999999999
+#define INT 999999999
 long int m[20][20];
 int s[20][20];
 int p[20], i, j, n;
 
-void print_Matrix(int i, int j)
+void print_Arr(int i, int j)
 {
     if (i == j)
         printf(" A%d ", i);
     else
     {
         printf("( ");
-        print_Matrix(i, s[i][j]);
-        print_Matrix(s[i][j] + 1, j);
+        print_Arr(i, s[i][j]);
+        print_Arr(s[i][j] + 1, j);
         printf(" )");
     }
 }
 
-void matrixChainMul()
+void matrix_ChainMul()
 {
     long int q;
     int k;
@@ -49,7 +49,7 @@ int MatrixChainOrder(int p[], int i, int j)
     if (i == j)
         return 0;
     int k;
-    int min = MAX;
+    int min = INT;
     int count;
 
     for (k = i; k < j; k++)
@@ -75,7 +75,7 @@ void main()
         for (j = i + 1; j <= n; j++)
         {
             m[i][i] = 0;
-            m[i][j] = MAX;
+            m[i][j] = INT;
             s[i][j] = 0;
         }
     printf("\nEnter the dimensions: \n");
@@ -84,7 +84,7 @@ void main()
         printf("P%d: ", k);
         scanf("%d", &p[k]);
     }
-    matrixChainMul();
+    matrix_ChainMul();
     printf("\nM Matrix:\n");
     for (i = 1; i <= n; i++)
         for (j = i; j <= n; j++)
@@ -102,6 +102,6 @@ void main()
             }
     i = 1, j = n;
     printf("\nMultiplication Sequence : ");
-    print_Matrix(i, j);
+    print_Arr(i, j);
     printf("\nMinimum number of multiplications is : %d ",MatrixChainOrder(p, 1, n));
 }

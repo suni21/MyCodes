@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include<stdlib.h>
-
-
 int main()
 {
     int x;
     x= 0x11223344;
-
     char *c = (char *)&x;
     if (*c == 0x44)
     {

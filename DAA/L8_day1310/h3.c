@@ -42,15 +42,12 @@ node *createnode(char data, int freq)
     return p;
 }
 
-// function to get right child of a node of a tree
 int get_right_child(int index)
 {
     if ((((2 * index) + 1) <= heap_size) && (index >= 1))
         return (2 * index) + 1;
     return -1;
 }
-
-// function to get left child of a node of a tree
 int get_left_child(int index)
 {
     if (((2 * index) <= heap_size) && (index >= 1))
@@ -58,7 +55,6 @@ int get_left_child(int index)
     return -1;
 }
 
-// function to get the parent of a node of a tree
 int get_parent(int index)
 {
     if ((index > 1) && (index <= heap_size))
@@ -82,11 +78,11 @@ void insert(node A[], node *a, int key)
 
 node *build_queue(node c[], int size)
 {
-    node *a = malloc(sizeof(node) * heap_array_size); // a is the array to store heap
+    node *a = malloc(sizeof(node) * heap_array_size);
     int i;
     for (i = 0; i < size; i++)
     {
-        insert(a, &c[i], c[i].frequency); // inserting node in array a(min-queue)
+        insert(a, &c[i], c[i].frequency); 
     }
     return a;
 }
@@ -96,7 +92,6 @@ void min_heapify(node A[], int index)
     int left_child_index = get_left_child(index);
     int right_child_index = get_right_child(index);
 
-    // finding smallest among index, left child and right child
     int smallest = index;
 
     if ((left_child_index <= heap_size) && (left_child_index > 0))
@@ -114,8 +109,6 @@ void min_heapify(node A[], int index)
             smallest = right_child_index;
         }
     }
-
-    // smallest is not the node, node is not a heap
     if (smallest != index)
     {
         swap(&A[index], &A[smallest]);
@@ -161,12 +154,12 @@ node *greedy_huffman_code(node C[])
 
 int main()
 {
-    node *a = createnode('a', 42);
-    node *b = createnode('b', 20);
-    node *c = createnode('c', 5);
-    node *d = createnode('d', 10);
-    node *e = createnode('e', 11);
-    node *f = createnode('f', 12);
+    node *a = createnode('a', 45);
+    node *b = createnode('b', 10);
+    node *c = createnode('c', 11);
+    node *d = createnode('d', 16);
+    node *e = createnode('e', 9);
+    node *f = createnode('f', 50);
     node C[] = {*a, *b, *c, *d, *e, *f};
 
     node *z = greedy_huffman_code(C);

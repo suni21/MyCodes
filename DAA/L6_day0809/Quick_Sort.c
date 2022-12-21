@@ -20,11 +20,11 @@ void swap(int *x, int *y)
     *y = temp;
 }
 
-int partition(int arr[], int l, int h)
+int partition(int arr[], int l, int r)
 {
-    int pivot = arr[h];
+    int pivot = arr[r];
     int i = (l - 1);
-    for (int j = l; j <= h - 1; j++)
+    for (int j = l; j <= r - 1; j++)
     {
         if (arr[j] <=  pivot)
         {
@@ -32,7 +32,7 @@ int partition(int arr[], int l, int h)
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[h]);
+    swap(&arr[i + 1], &arr[r]);
     return (i + 1);
 }
 int Random_partition(int arr[], int l, int h)
