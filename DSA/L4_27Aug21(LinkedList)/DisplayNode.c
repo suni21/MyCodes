@@ -1,4 +1,4 @@
-#include<stdio.h>
+5#include<stdio.h>
 #include<stdlib.h>
 
 struct node
